@@ -48,18 +48,26 @@ public class BootstrapData implements CommandLineRunner {
         Author eoSaved = authorRepository.save(eo);
         Book opSaved = bookRepository.save(op);
 
+
         tkSaved.getBooks().add(bSaved);
         eoSaved.getBooks().add(opSaved);
-
-        authorRepository.save(tkSaved);
-        authorRepository.save(eoSaved);
 
         Publisher sj = new Publisher();
         sj.setPublisherName("Shonen Jump");
         sj.setCity("Japan");
+        Publisher savedPublisher = publisherRepository.save(sj);
 
-        Publisher sjSaved = publisherRepository.save(sj);
-        publisherRepository.save(sjSaved);
+        bSaved.setPublisher(savedPublisher);
+        opSaved.setPublisher(savedPublisher);
+        bookRepository.save(bSaved);
+        bookRepository.save(opSaved);
+
+
+
+
+        authorRepository.save(tkSaved);
+        authorRepository.save(eoSaved);
+
 
 
 
