@@ -51,6 +51,8 @@ public class BootstrapData implements CommandLineRunner {
 
         tkSaved.getBooks().add(bSaved);
         eoSaved.getBooks().add(opSaved);
+        bSaved.getAuthors().add(tkSaved);
+        opSaved.getAuthors().add(eoSaved);
 
         Publisher sj = new Publisher();
         sj.setPublisherName("Shonen Jump");
